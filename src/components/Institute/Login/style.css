@@ -1,0 +1,44 @@
+
+const styles = StyleSheet.create({
+  	container: {
+	    flex: 1,
+ 	},
+ 	loginViewContainer: { 
+ 		flex: 1, 
+ 		flexDirection: 'column',
+ 		alignItems: 'stretch',
+ 		paddingTop: Dimensions.get('window').height * 0.1
+ 	},
+ 	cardContainer: { 
+ 		padding: 15, 
+ 		marginTop: 40,
+ 		marginLeft: 30, 
+ 		marginRight: 30 
+ 	},
+ 	cardHeader: { 
+ 		borderBottomWidth: 1, 
+ 		borderBottomColor: '#E0E0E0'
+ 	},
+	inputContainer: {
+      	height:100,
+      	marginBottom:15,
+      	flexDirection: 'column',
+      	justifyContent: 'space-between',
+  	},
+  	inputs:{
+      	height:45,
+		marginLeft:5,
+      	borderBottomWidth: 1,  	
+      	flex:1,
+  	},
+  	buttonVerifier: {
+	    marginTop: 10,
+	    alignItems: 'center',
+	    backgroundColor: '#D24943',
+	    borderRadius: 5
+  	},
+  	buttonText: {
+    	padding: 10,
+    	color: 'white',
+  	}
+})
