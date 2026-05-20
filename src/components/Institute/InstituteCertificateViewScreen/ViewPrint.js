@@ -55,10 +55,10 @@ export default class ViewPrint extends Component {
                 <Text style={styles.label}> Relation: </Text>
                 <Text style={styles.value}>{item.relation || 'N/A'}</Text>
             </View>
-            <View style={{flexDirection:'row'}}>
+            {/* <View style={{flexDirection:'row'}}>
                 <Text style={styles.label}> DOB: </Text>
                 <Text style={styles.value}>{item.dob}</Text>
-            </View>
+            </View> */}
             
         </View>
     );

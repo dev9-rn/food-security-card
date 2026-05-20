@@ -132,7 +132,7 @@ export default class DocumentViewScreen extends React.Component {
 	}
 
 	render() {
-		const source = { uri: this.state.certificateURI, cache: true };
+		const source = { uri: this.state.certificateURI, cache: false };
 		return (
 			<View style={styles.container}>
 				{Platform.OS == 'ios' ?

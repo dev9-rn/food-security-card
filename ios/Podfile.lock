@@ -661,31 +661,31 @@ SPEC CHECKSUMS:
   GoogleUtilities: ea963c370a38a8069cc5f7ba4ca849a60b6d7d15
   libwebp: 02b23773aedb6ff1fd38cec7a77b81414c6842a8
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
-  Permission-Camera: 5d2aaf95592660b6dcb5e8d1d90ed5d0156cad02
+  Permission-Camera: 9113542a8426755da29304e6169fd281cf275216
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
-  RCT-Folly: 4d8508a426467c48885f1151029bc15fa5d7b3b8
+  RCT-Folly: 98c12368076b400dc54d2cedb1a4574deee64356
   RCTRequired: 3e917ea5377751094f38145fdece525aa90545a0
   RCTTypeSafety: c43c072a4bd60feb49a9570b0517892b4305c45e
   React: 176dd882de001854ced260fad41bb68a31aa4bd0
   React-callinvoker: c2864d1818d6e64928d2faf774a3800dfc38fe1f
   React-Codegen: 98b6f97f0a7abf7d67e4ce435c77c05b7a95cf05
-  React-Core: fdaa2916b1c893f39f02cff0476d1fb0cab1e352
+  React-Core: a201852f4b982eb7f12c1ca08f2af5670ce53610
   React-CoreModules: fd8705b80699ec36c2cdd635c2ce9d874b9cfdfc
-  React-cxxreact: 1832d971f7b0cb2c7b943dc0ec962762c90c906e
-  React-jsi: 72af715135abe8c3f0dcf3b2548b71d048b69a7e
-  React-jsiexecutor: b7b553412f2ec768fe6c8f27cd6bafdb9d8719e6
+  React-cxxreact: c15b2a342ba579181e923a59f568ec84f38811d5
+  React-jsi: 2fbfe2d30d73966ce125fe4e11b0eb2f1c2e84a2
+  React-jsiexecutor: fc9cea49a9b3e55071b32e97353c17e8dcef2725
   React-jsinspector: c5989c77cb89ae6a69561095a61cce56a44ae8e8
-  React-logger: a0833912d93b36b791b7a521672d8ee89107aff1
-  react-native-blob-util: 600972b1782380a5a7d5db61a3817ea32349dae9
-  react-native-camera: b8cc03e2feec0c04403d0998e37cf519d8fd4c6f
-  react-native-netinfo: f0a9899081c185db1de5bb2fdc1c88c202a059ac
-  react-native-pdf: 73accc61238e8e9bc6e376191225028af20b996e
-  react-native-progress-bar-android: 092e6a794f158642692f25c8839d9aa8eb779afb
-  react-native-progress-view: 1f56a2bc2c31918f41159c6eaf12be6cf784f714
-  react-native-randombytes: 421f1c7d48c0af8dbcd471b0324393ebf8fe7846
-  react-native-splash-screen: 4312f786b13a81b5169ef346d76d33bc0c6dc457
-  react-native-version-check: 6cd36aad4e30b8e3216747e3b4ddeb09e0647af8
-  react-native-webview: f37214bbc9ef9e71ed3b71abc465d2e7f26d91dc
+  React-logger: 4d02c5a38d4ea66888bfa19448201520f1024260
+  react-native-blob-util: 180114eb5861c28b79dab6c918b4849404bdf644
+  react-native-camera: 1e6fefa515d3af8b4aeaca3a8bffa2925252c4ea
+  react-native-netinfo: cec9c4e86083cb5b6aba0e0711f563e2fbbff187
+  react-native-pdf: 6a51a22ccefb23eb93298771e4bf090913e86d70
+  react-native-progress-bar-android: 70caf8832e7a6378a3340bc81f361f65ad406a54
+  react-native-progress-view: bae9c45202f3de868c63f536857f6a589cd78610
+  react-native-randombytes: 3c8f3e89d12487fd03a2f966c288d495415fc116
+  react-native-splash-screen: 95994222cc95c236bd3cdc59fe45ed5f27969594
+  react-native-version-check: c7b4269cd18781b51009fa4b5a8ad9ab5131ce6f
+  react-native-webview: 0b3b18b003c19110c51bccc651932c127d97cc69
   React-perflogger: a18b4f0bd933b8b24ecf9f3c54f9bf65180f3fe6
   React-RCTActionSheet: 547fe42fdb4b6089598d79f8e1d855d7c23e2162
   React-RCTAnimation: bc9440a1c37b06ae9ebbb532d244f607805c6034
@@ -697,15 +697,15 @@ SPEC CHECKSUMS:
   React-RCTText: f3fb464cc41a50fc7a1aba4deeb76a9ad8282cb9
   React-RCTVibration: 79040b92bfa9c3c2d2cb4f57e981164ec7ab9374
   React-runtimeexecutor: b960b687d2dfef0d3761fbb187e01812ebab8b23
-  ReactCommon: 095366164a276d91ea704ce53cb03825c487a3f2
-  RNCAsyncStorage: ec53e44dc3e75b44aa2a9f37618a49c3bc080a7a
-  RNFastImage: 5c9c9fed9c076e521b3f509fe79e790418a544e8
-  RNFileViewer: ce7ca3ac370e18554d35d6355cffd7c30437c592
-  RNFS: 4ac0f0ea233904cb798630b3c077808c06931688
-  RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
-  RNPermissions: 5df468064df661a4c8c017e2791ce90d7695eea5
-  RNScreens: f7ad633b2e0190b77b6a7aab7f914fad6f198d8d
-  RNVectorIcons: fcc2f6cb32f5735b586e66d14103a74ce6ad61f8
+  ReactCommon: 6e27065b582af0ef4d4ca9f9b09acafbd429913b
+  RNCAsyncStorage: b6410dead2732b5c72a7fdb1ecb5651bbcf4674b
+  RNFastImage: 462a183c4b0b6b26fdfd639e1ed6ba37536c3b87
+  RNFileViewer: 4b5d83358214347e4ab2d4ca8d5c1c90d869e251
+  RNFS: 89de7d7f4c0f6bafa05343c578f61118c8282ed8
+  RNGestureHandler: 6572a5f44759900730562b418da289c373de8d06
+  RNPermissions: a6eda2a4f7e28a8152b9abc792ba2ae59e12e3e8
+  RNScreens: 6a2106686e0de9866ab14ca250d7e47a49416b51
+  RNVectorIcons: 5784330be9dddb5474e8b378d5f6947996c84e55
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SDWebImageWebPCoder: 908b83b6adda48effe7667cd2b7f78c897e5111d
   Yoga: 99652481fcd320aefa4a7ef90095b95acd181952

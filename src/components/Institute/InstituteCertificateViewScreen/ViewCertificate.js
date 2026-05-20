@@ -167,7 +167,7 @@ export default class ViewCertificate extends React.Component {
 
     render() {
         console.log("helloooo2", this.state.certificateURI);
-        const source = { uri: encodeURI(this.state.certificateURI), cache: true };
+        const source = { uri: encodeURI(this.state.certificateURI), cache: false };
         return (
             <View style={styles.container}>
                 {/* {Platform.OS == 'ios' ?

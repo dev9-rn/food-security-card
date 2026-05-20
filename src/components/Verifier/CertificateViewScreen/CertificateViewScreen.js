@@ -29,8 +29,8 @@ export default class CertificateViewScreen extends Component {
 	}
 
 	toggleModal = () => {
-        this.setState({ showModal: !this.state.showModal });
-    };
+		this.setState({ showModal: !this.state.showModal });
+	};
 
 
 	// componentWillMount() { this._getAsyncData(); }
@@ -122,7 +122,7 @@ export default class CertificateViewScreen extends Component {
 	}
 
 	render() {
-		const source = { uri: encodeURI(this.state.dataForCertificate.fileUrl), cache: true };
+		const source = { uri: encodeURI(this.state.dataForCertificate.fileUrl), cache: false };
 
 		console.log("family_details-------");
 		console.log(this.state.family_details);
@@ -139,12 +139,12 @@ export default class CertificateViewScreen extends Component {
 									<View style={{ flex: 1 }}>
 										<Text style={{ marginLeft: -12, color: '#212121', fontWeight: 'bold', fontSize: 16 }}>Document ID : {this.state.dataForCertificate.serial_no}</Text>
 										<Text style={{ marginLeft: -12, color: '#212121', fontWeight: 'bold', fontSize: 16 }}>Data :
-										{
-                                    this.state.dataAboveCertificate !== 'Decryption failed' ?
-                                        <Text style={styles.textStatus}>{this.state.dataAboveCertificate}</Text>
-                                        :
-                                        <View></View>
-                                }
+											{
+												this.state.dataAboveCertificate !== 'Decryption failed' ?
+													<Text style={styles.textStatus}>{this.state.dataAboveCertificate}</Text>
+													:
+													<View></View>
+											}
 										</Text>
 										{/* <Text style={{ marginLeft: -12, color: '#212121', fontWeight: 'bold', fontSize: 16 }}>{this.state.dataAboveCertificate.name ? this.state.dataAboveCertificate.name : ""}</Text>
 										<Text style={{ marginLeft: -12, color: '#212121', fontWeight: 'bold', fontSize: 16 }}>{this.state.dataAboveCertificate.enrollmentNo ? this.state.dataAboveCertificate.enrollmentNo : ""}</Text>
@@ -154,7 +154,7 @@ export default class CertificateViewScreen extends Component {
 									:
 									<Text style={{ marginLeft: -12, color: '#212121', fontWeight: 'bold', fontSize: 16 }}>Document ID : {this.state.dataForCertificate.serial_no}</Text>
 								}
-								
+
 							</CardItem>
 
 							{/* <TouchableOpacity 
@@ -163,13 +163,13 @@ export default class CertificateViewScreen extends Component {
                                     >
                                         <Text style={styles.viewDetailsText}> View Family Details</Text>
                                     </TouchableOpacity> */}
-							
+
 							<View style={{ paddingTop: 10, height: Dimensions.get('window').height * 0.7 }}>
-								<View style={{ flex: 0.1, flexDirection: 'row' , padding:10 }}>
+								<View style={{ flex: 0.1, flexDirection: 'row', padding: 10 }}>
 									<Text style={{ fontSize: 22, flex: 0.9 }}>Document</Text>
 									<TouchableOpacity style={{ flex: 0.1 }} onPress={() => { this.downloadFile() }}>
 										<Image
-											style={{ width: 40, height: 40,  }}
+											style={{ width: 40, height: 40, }}
 											source={require('../../../images/forward_arrow.png')}
 										/>
 									</TouchableOpacity>
@@ -193,98 +193,98 @@ export default class CertificateViewScreen extends Component {
 					</Card>
 				</View>
 				{/* ✅ Family Details Modal */}
-                <Modal
-                    visible={this.state.showModal}
-                    animationType="slide"
-                    transparent={true}
-                >
-                    <View style={styles.modalBackground}>
-                        <View style={styles.modalContainer}>
-                            <Text style={styles.modalTitle}>Family Details</Text>
+				<Modal
+					visible={this.state.showModal}
+					animationType="slide"
+					transparent={true}
+				>
+					<View style={styles.modalBackground}>
+						<View style={styles.modalContainer}>
+							<Text style={styles.modalTitle}>Family Details</Text>
 
-                            <FlatList
-                                data={this.state.family_details}
-                                keyExtractor={(item, index) => index.toString()}
-                                renderItem={({ item }) => (
-                                    <View style={styles.familyItem}>
-                                        <Text style={styles.familyText}> Name {item.name}</Text>
-                                        <Text style={styles.familyText}> UID: {item.uid}</Text>
-                                        <Text style={styles.familyText}> Relation: {item.relation || 'N/A'}</Text>
-                                        <Text style={styles.familyText}> DOB: {item.dob}</Text>
-                                    </View>
-                                )}
-                            />
+							<FlatList
+								data={this.state.family_details}
+								keyExtractor={(item, index) => index.toString()}
+								renderItem={({ item }) => (
+									<View style={styles.familyItem}>
+										<Text style={styles.familyText}> Name {item.name}</Text>
+										<Text style={styles.familyText}> UID: {item.uid}</Text>
+										<Text style={styles.familyText}> Relation: {item.relation || 'N/A'}</Text>
+										{/* <Text style={styles.familyText}> DOB: {item.dob}</Text> */}
+									</View>
+								)}
+							/>
 
-                            {/* ❌ Close Button */}
-                            <TouchableOpacity style={styles.closeButton} onPress={this.toggleModal}>
-                                <Text style={styles.closeButtonText}>❌ Close</Text>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-                </Modal>
+							{/* ❌ Close Button */}
+							<TouchableOpacity style={styles.closeButton} onPress={this.toggleModal}>
+								<Text style={styles.closeButtonText}>❌ Close</Text>
+							</TouchableOpacity>
+						</View>
+					</View>
+				</Modal>
 			</View>
 		)
 	}
 }
 const styles = StyleSheet.create({
 	container: {
-        flex: 1,
-    },
-    viewDetailsButton: {
-        margin: 10,
-        backgroundColor: '#007bff',
-        padding: 10,
-        borderRadius: 5,
-        alignItems: 'center',
-    },
-    viewDetailsText: {
-        color: '#FFFFFF',
-        fontSize: 14,
-        fontWeight: 'bold',
-    },
-    pdf: {
-        flex: 1,
-    },
-    modalBackground: {
-        flex: 1,
-        backgroundColor: 'rgba(0,0,0,0.5)',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    modalContainer: {
-        backgroundColor: '#fff',
-        padding: 20,
-        borderRadius: 10,
-        width: '90%',
-        // alignItems: 'center',
-    },
-    modalTitle: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        marginBottom: 10,
-    },
-    familyItem: {
-        backgroundColor: '#f8f9fa',
-        padding: 10,
-        borderRadius: 5,
-        marginBottom: 10,
-        // width: '100%',
-    },
-    familyText: {
-        fontSize: 14,
-        color: '#212121',
-    },
-    closeButton: {
-        marginTop: 10,
-        backgroundColor: '#dc3545',
-        padding: 10,
-        borderRadius: 5,
-		width:'100%',
-    },
-    closeButtonText: {
-        color: '#fff',
-        fontSize: 14,
-        fontWeight: 'bold',
-		textAlign:'center',
-    },
+		flex: 1,
+	},
+	viewDetailsButton: {
+		margin: 10,
+		backgroundColor: '#007bff',
+		padding: 10,
+		borderRadius: 5,
+		alignItems: 'center',
+	},
+	viewDetailsText: {
+		color: '#FFFFFF',
+		fontSize: 14,
+		fontWeight: 'bold',
+	},
+	pdf: {
+		flex: 1,
+	},
+	modalBackground: {
+		flex: 1,
+		backgroundColor: 'rgba(0,0,0,0.5)',
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	modalContainer: {
+		backgroundColor: '#fff',
+		padding: 20,
+		borderRadius: 10,
+		width: '90%',
+		// alignItems: 'center',
+	},
+	modalTitle: {
+		fontSize: 18,
+		fontWeight: 'bold',
+		marginBottom: 10,
+	},
+	familyItem: {
+		backgroundColor: '#f8f9fa',
+		padding: 10,
+		borderRadius: 5,
+		marginBottom: 10,
+		// width: '100%',
+	},
+	familyText: {
+		fontSize: 14,
+		color: '#212121',
+	},
+	closeButton: {
+		marginTop: 10,
+		backgroundColor: '#dc3545',
+		padding: 10,
+		borderRadius: 5,
+		width: '100%',
+	},
+	closeButtonText: {
+		color: '#fff',
+		fontSize: 14,
+		fontWeight: 'bold',
+		textAlign: 'center',
+	},
 });

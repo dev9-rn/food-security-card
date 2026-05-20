@@ -142,7 +142,7 @@ export default class InstituteCertificateViewScreen extends React.Component {
 
 	render() {
 		// const source = { uri: this.state.certificateURI, cache: true };
-		const source = { uri: encodeURI(this.state.dataForCertificate.fileUrl), cache: true };
+		const source = { uri: encodeURI(this.state.dataForCertificate.fileUrl), cache: false };
 		return (
 			<View style={styles.container}>
 				{Platform.OS == 'ios' ?

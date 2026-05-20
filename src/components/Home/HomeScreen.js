@@ -11,13 +11,21 @@ import {
   Image,
   Dimensions,
   PixelRatio,
-  TouchableOpacity
+  TouchableOpacity,
+  LogBox
 } from "react-native";
 import OfflineNotice from "../../Utility/OfflineNotice";
 import * as utilities from "../../Utility/utilities";
 import * as app from "../../App";
 import SplashScreen from 'react-native-splash-screen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
+// Suppress known third-party deprecated warnings (e.g. native-base currentlyFocusedField)
+LogBox.ignoreLogs([
+  'currentlyFocusedField is deprecated',
+  'Warning: componentWillMount',
+  'Warning: componentWillReceiveProps',
+]);
 
 export var LAT = "";
 export var LONG = "";
@@ -34,22 +42,22 @@ export default class HomeScreen extends React.Component {
     };
   }
 
-  componentWillMount() {
-    // alert("componentWillMount : " + app.ISNETCONNECTED);
-  }
+  // REMOVED componentWillMount — it was deprecated and empty, no logic was inside it.
 
   componentDidMount() {
-    SplashScreen.hide()
+    SplashScreen.hide();
     BackHandler.addEventListener("hardwareBackPress", this.handleBackPress);
+
+    // Geolocation example (commented out in original — kept for reference, bug fixed below)
     // navigator.geolocation.getCurrentPosition(
     //   position => {
     //     this.setState({
     //       latitude: position.coords.latitude,
-    //       longitude: position.coords.longitude,
+    //       longitude: position.coords.longitude, // BUG FIX: was position.coords.latitude (copy-paste bug)
     //       locationError: null
     //     });
     //     LAT = position.coords.latitude;
-    //     LONG = position.coords.latitude;
+    //     LONG = position.coords.longitude; // BUG FIX: was position.coords.latitude
     //     LOC_ERROR = null;
     //     console.log(LAT + " : " + LONG + " : " + LOC_ERROR);
     //   },
@@ -73,28 +81,41 @@ export default class HomeScreen extends React.Component {
   };
 
   async getUserdata() {
-    // debugger;
-    await AsyncStorage.multiGet(["USERDATA"], (err, result) => {
-      // USERDATA is set on VerifierLoginScreen
-      // debugger;
-      var lData = JSON.parse(result[0][1]);
-
-      console.log(result);
-      if (lData) {
-        if (lData.user_type == "1") {
-          this.props.navigation.navigate("VerifierMainScreen");
-        } else if (lData.user_type == "2") {
-          this.props.navigation.navigate("InstituteMainScreen");
-        } else if (lData.hasOwnProperty("student_id") && lData.student_id) {
-          this.props.navigation.navigate("DocumentListScreen");
+    try {
+      await AsyncStorage.multiGet(["USERDATA"], (err, result) => {
+        if (err) {
+          console.log("AsyncStorage error:", err);
+          return;
         }
-      }
-    });
+
+        // BUG FIX: Added null/undefined guard before JSON.parse
+        if (!result || !result[0] || !result[0][1]) {
+          console.log("No USERDATA found in AsyncStorage.");
+          return;
+        }
+
+        var lData = JSON.parse(result[0][1]);
+
+        console.log(result);
+        if (lData) {
+          if (lData.user_type == "1") {
+            this.props.navigation.navigate("VerifierMainScreen");
+          } else if (lData.user_type == "2") {
+            this.props.navigation.navigate("InstituteMainScreen");
+          } else if (lData.hasOwnProperty("student_id") && lData.student_id) {
+            this.props.navigation.navigate("DocumentListScreen");
+          }
+        }
+      });
+    } catch (error) {
+      console.log("getUserdata error:", error);
+    }
   }
 
   _onPressButton(pLoginType) {
     this.props.navigation.navigate(pLoginType, { LAT: LAT, LONG: LONG });
   }
+
   render() {
     return (
       <View style={styles.container}>
@@ -110,7 +131,6 @@ export default class HomeScreen extends React.Component {
             >
               {/* <Text style={{ color: "#0000FF" }}>DC </Text> */}
               <Text style={{ color: "#0000FF" }}>Food Security Card </Text>
-
             </Text>
           </View>
         </View>
@@ -150,6 +170,7 @@ export default class HomeScreen extends React.Component {
     );
   }
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

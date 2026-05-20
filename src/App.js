@@ -15,7 +15,7 @@ export default class App extends Component {
   }
 };
 
-export const URL = "https://dc.seqrdoc.com/api/";
+export const URL = "https://demo.seqrdoc.com/api/";
 // export const URL = "https://newserver.seqrdoc.com/api/";
 
 export const title = "Food Security Card";
